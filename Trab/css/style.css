@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+#navbar {
+    width: 95%;
+    height: 60px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #6699ff;
+}
+#container {
+    width: 50%;
+    margin: auto;
+}
+.nav {
+    width: 20%;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+.item {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
