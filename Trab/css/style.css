@@ -26,3 +26,8 @@
     height: 100px;
     display: inline-block;
 }
+.perguntas{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
