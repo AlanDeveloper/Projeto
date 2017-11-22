@@ -16,7 +16,6 @@ ref.once('value', function (dados) {
     }
 });
 
-
 // ref.once('value', function (dados) {console.log(Object.keys(dados.val()))}) titles 
 // Object.keys(d)
 // ref = firebase.database().ref('/Civilização')

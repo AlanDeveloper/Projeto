@@ -34,7 +34,7 @@ function Question(questao, alt1, alt2 , alt3, alt4) {
         'alt1' : alt1,
         'alt2' : alt2,
         'alt3' : alt3,
-        'alt4' : alt4
+        'resposta' : alt4
     };
 }
 
@@ -64,8 +64,6 @@ function adicionaDinos() {
     Persistencia.updateData('/' + a.value, Question(q[7], alt[28], alt[29], alt[30], alt[31]));
     Persistencia.updateData('/' + a.value, Question(q[8], alt[32], alt[33], alt[34], alt[35]));
     Persistencia.updateData('/' + a.value, Question(q[9], alt[36], alt[37], alt[38], alt[39]));
-    // Persistencia.updateData('/' + a.value, Question('tiranossauro', 'carnivoro', 'cretaceo'));
-    // Persistencia.updateData('/' + a.value, Question('dilofossauro', 'carnivoro', 'jurassico'));
 }
 
 function lerDinos() {
@@ -73,9 +71,6 @@ function lerDinos() {
         snapshot.forEach(function(childSnapshot) {
             console.log(`A chave do dinossauro ${childSnapshot.val().nome} é ${childSnapshot.key}.`);
         });
-        console.log();
     });
 }
-
-//adicionaDinos()
 lerDinos();

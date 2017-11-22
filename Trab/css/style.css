@@ -57,3 +57,21 @@ h2 {
     letter-spacing: 8px;
     text-transform: uppercase;
 }
+#pergunta {
+    display: flex;
+}
+#ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#alert {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    visibility: hidden;
+}
+.ques {
+    display: inline;
+}

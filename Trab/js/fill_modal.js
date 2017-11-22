@@ -4,6 +4,8 @@ const groupTemplate = Handlebars.compile(source);
 const modal = document.querySelector('div.modal');
 const modalBody = modal.querySelector('div.modal-body');
 const modalHeader = modal.querySelector('div.modal-header');
+const div = document.querySelector('#alert');
+
 modal.addEventListener('hidde.bs.modal', function (event) {
     clear();
 });
@@ -41,8 +43,16 @@ formVisible.addEventListener('submit', function (event) {
 function clear() {
     modalBody.querySelector('form.form-horizontal').innerHTML = '';
 }
-let btn1 = document.querySelector('#subm');  
-btn1.addEventListener('click', function (e) {
+
+document.querySelector('#form_visible').addEventListener('submit', submit);
+
+function submit (event) {
     adicionaDinos();
-    e.preventDefault();
+    div.style.visibility = "visible";
+    document.querySelector('#form_visible').reset();
+    event.preventDefault();
+}
+
+document.querySelector('#close').addEventListener('click', function (e) { 
+    div.style.visibility = "hidden";
 });
