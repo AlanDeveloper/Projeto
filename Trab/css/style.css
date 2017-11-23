@@ -63,7 +63,9 @@ h2 {
 #ul {
     list-style-type: none;
     margin: 0;
+    margin-left: 5px;
     padding: 0;
+    text-align: left;
 }
 #alert {
     width: 50%;
@@ -74,4 +76,16 @@ h2 {
 }
 .ques {
     display: inline;
+}
+.end {
+    text-align: center;
+}
+#cl  {
+    margin-top: 5px;
+}
+#quiz {
+    text-align: center;
+    margin-top: 20px;
+    height: 250px;
+    border: 1px solid black;
 }

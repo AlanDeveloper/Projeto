@@ -9,6 +9,10 @@ ref.once('value', function (dados) {
         a.href  = "quiz.html";
         a.setAttribute('id', 'item');
         a.innerText = d[cont];
+        let i = d[cont];
+        a.addEventListener('click', function () {
+            window.localStorage.setItem('page', i);
+        });
         li.appendChild(a);
         ul.appendChild(li);
         a = document.createElement('a');

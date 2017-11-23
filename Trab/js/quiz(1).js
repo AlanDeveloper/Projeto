@@ -8,13 +8,14 @@ let inp1 = document.querySelector('#resposta_1-0');
 let inp2 = document.querySelector('#resposta_1-1');
 let inp3 = document.querySelector('#resposta_1-2');
 let inp4 = document.querySelector('#resposta_1-3');
+let divPer = document.querySelector('.perguntas');
 let btn  = document.querySelector('#cl');
 let divPro = document.querySelector('.progress-bar');
 divPro.style.width = "0%";
 
 ref.on('value', function (dados) {
     d = Object.keys(dados.val());
-    ref = firebase.database().ref('/' + d[0]);
+    ref = firebase.database().ref('/' + window.localStorage.getItem('page'));
     ref.on("child_added", function (e) {
         quest[cont] = e.val().questao;
         alt1[cont] = e.val().alt1;
@@ -43,22 +44,41 @@ ref.on('value', function (dados) {
     };
 });
 
+let cc = 0, cc1 = 0, ru = [], cc2 = 0;
+
 btn.addEventListener('click', function (e) {
-    n++;
-    divPro.style.width = q + "0%";
-    p.innerText = q12[n];
-    q++;
-    random[0] = alt11[n];
-    random[1] = alt22[n];
-    random[2] = alt33[n];
-    random[3] = resp1[n];
-    randOrd();
-    inp1.innerText = random[rad[0]];
-    inp2.innerText = random[rad[1]];
-    inp3.innerText = random[rad[2]];
-    inp4.innerText = random[rad[3]];
-    rad = [];
+    while (cc <= 3) {
+        if (document.querySelector('#r' + cc).checked === true) {
+            ru[n] = document.querySelector('#resposta_1-' + cc).innerText;
+            cc1 = document.querySelector('#r' + cc);
+        } else {
+            cc2++;
+        }
+        cc++;
+    }
+    cc = 0;
+    if (cc2 < 4) {
+        n++;
+        divPro.style.width = q + "0%";
+        p.innerText = q12[n];
+        q++;
+        random[0] = alt11[n];
+        random[1] = alt22[n];
+        random[2] = alt33[n];
+        random[3] = resp1[n];
+        randOrd();
+        inp1.innerText = random[rad[0]];
+        inp2.innerText = random[rad[1]];
+        inp3.innerText = random[rad[2]];
+        inp4.innerText = random[rad[3]];
+        rad = [];
+        cc1.checked = false;
+        if (ru.length === 10) {
+            Correction();
+        }
+    }
     e.preventDefault();
+    cc2 = 0;
 });
 
 function randOrd() {
@@ -72,4 +92,25 @@ function randOrd() {
         c = Math.floor(Math.random() * 4);
     }
     return rad;
+}
+
+function Correction () {
+    divPer.innerHTML = '';
+    divPer.setAttribute('class', 'end');
+    let d = document.createElement('h2');
+    let e = document.createElement('h4');
+    d.innerText = 'Quiz Terminado!';
+    while (cc < 10) {
+        if (ru[cc] === resp1[cc]) {
+            e.innerText = (cc + 1) + ' - Acertou!';
+        } else {
+            e.innerText = (cc + 1) + ' - Errou! A resposta era ' + resp1[cc];
+        }
+        divPer.appendChild(d);
+        divPer.appendChild(e);
+        d = document.createElement('h2');
+        e = document.createElement('h4');
+        cc++;
+    }
+    cc = 0;
 }

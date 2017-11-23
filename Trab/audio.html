@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="vendor/bootstrap-social/bootstrap-social.css"> -->
+
+    <title>Miubi</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="menu">
+            <!-- <div class="login">
+                    <div class="logado">
+                        <img src="" alt="avatar" class="img-circle" width="40" height="40">
+                        <span></span>
+                        <a href="#" class="btn btn-danger">
+                            <span class="fa fa-sign-out"></span>Sair
+                        </a>
+                    </div>
+                    <div class="naologado">
+                        <a href="#" id="lg" class="btn btn-warning btn-lg btn-block">Login com Google</a>
+                    </div>
+                </div> -->
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active">
+                    <a href="index.html"><span class="glyphicon glyphicon-th-large"></span> Home</a>
+                </li>
+                <li role="presentation">
+                    <a href="quiz.html"> <span class="glyphicon glyphicon-question-sign"></span> Quiz</a>
+                </li>
+                <li role="presentation">
+                    <a href="prof.html"><span class="glyphicon glyphicon-pencil"></span> Professor</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <form action="" method="POST" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <legend>Upload dos arquivos de áudio:</legend>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label for="arquivo">Entrada de arquivos.</label>
+                        <input type="file" name="arquivo" id="arquivo" class="form-control-file">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+        </form>
+        
+        <button type="button" class="btn btn-success">Reproduzir Áudio</button>
+              
+    </div>   
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/handlebars/handlebars.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js">
+
+    </script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyBuj6o9s87RSpITJjcm64O9UVtir-UcU2I",
+            authDomain: "tca-2017.firebaseapp.com",
+            databaseURL: "https://tca-2017.firebaseio.com",
+            projectId: "tca-2017",
+            storageBucket: "tca-2017.appspot.com",
+            messagingSenderId: "507569273215"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- <script src="js/login.js"></script> -->
+    <script src="js/armazenamento.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/persistencia.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/testar_armazenamento.js"></script>
+</body>
+
+</html>
