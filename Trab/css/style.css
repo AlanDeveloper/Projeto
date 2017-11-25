@@ -33,9 +33,6 @@
     margin-top: 5px;
     margin-bottom: 20px;
 }
-#sub {
-    margin-left: 50%;
-}
 .item {
     width: 100px;
     height: 100px;
@@ -87,5 +84,23 @@ h2 {
     text-align: center;
     margin-top: 20px;
     height: 250px;
-    border: 1px solid black;
+    border-top: 1px solid black;
+}
+#audio {
+    width: 40%;
+}
+#btns {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+}
+.w3-panel {
+    text-align: center;
+}
+#bts {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 50%;
 }

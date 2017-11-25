@@ -1,5 +1,5 @@
 function isAudio (file) {
-    let extension = getExtension(fileName);
+    let extension = getExtension(file.name);
     switch (extension) {
         case 'mp3':
         case 'wav':

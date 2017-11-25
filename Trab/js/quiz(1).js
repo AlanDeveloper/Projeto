@@ -3,6 +3,7 @@ let quest = [], q12 = [], alt1 = [], alt11 = [], alt2 = [], alt22 = [], alt3 = [
 let q = 1;
 let rad = [];
 let random = [];
+let cco1 = 0;
 let p = document.querySelector('#quest');
 let inp1 = document.querySelector('#resposta_1-0');
 let inp2 = document.querySelector('#resposta_1-1');

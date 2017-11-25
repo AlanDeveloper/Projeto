@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="vendor/bootstrap-social/bootstrap-social.css"> -->
 
@@ -42,7 +43,10 @@
         </div>
     </div>
     <div id="container">
-
+        <div class="w3-panel w3-yellow">
+            <h3>Atenção!</h3>
+            <p>Para salvar os aúdios grave eles em ordem,com o limite de 11 aúdios !</p>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -230,8 +234,30 @@
                     <input type="text" class="form-control" id="alt40" placeholder="Resposta" required>
                 </div>
             </div>
-            <button id="sub" class="btn btn-default" id="submit" data-toggle="modal" data-target="#exampleModal">Ver</button>
-            <input type="submit" id="subm" class="btn btn-primary">
+            <div id="btns">
+                <div id="audio">
+                    <div id="p0"></div>
+                    <div id="p1"></div>
+                    <div id="p2"></div>
+                    <div id="p3"></div>
+                    <div id="p4"></div>
+                    <div id="p5"></div>
+                    <div id="p6"></div>
+                    <div id="p7"></div>
+                    <div id="p8"></div>
+                    <div id="p9"></div>
+                    <div id="p10"></div>
+                    <div id="teste"></div>
+                </div>
+                <button type="button" class="btn btn-primary" id="go">Gravar aúdio</button>
+                <button type="button" class="btn btn-primary" id="going">Continuar gravando</button>
+                <button type="button" class="btn btn-default" id="stop">Parar</button>
+                <button type="button" class="btn btn-default" id="delete">Deletar</button>
+            </div>
+            <div id="bts">
+                <button id="sub" class="btn btn-default" id="submit" data-toggle="modal" data-target="#exampleModal">Ver</button>
+                <input type="submit" id="subm" class="btn btn-primary">
+            </div>
         </form>
         <div class="alert alert-success alert-dismissible" id="alert" role="alert">
             <button type="button" id="close"><span aria-hidden="true">&times;</span></button>
@@ -275,6 +301,7 @@
     <!-- <script src="js/login.js"></script> -->
     <script src="js/handleAuth.js"></script>
     <script src="js/persistencia.js"></script>
+    <script src="js/grava.js"></script>
 </body>
 
 </html>

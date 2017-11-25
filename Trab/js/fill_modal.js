@@ -47,9 +47,26 @@ function clear() {
 document.querySelector('#form_visible').addEventListener('submit', submit);
 
 function submit (event) {
+    let cont = 0;
+    let files = snd[cont];
+    // snd vetor onde está todos blob
+    console.log(files)
+    // estou trabalhando aqui
+    // for (file of files) {
+    //     Armazenamento.upload(`/audio/questao` + cco1, file, function () {
+    //         console.log(`Arquivo de áudio ${file.name} upado com sucesso!!!`);
+    //         Persistencia.updateData(`/audio`, {
+    //             'path': `/audio/${file.name}`,
+    //         });
+    //     }, function (error) {
+    //         console.log('Aqui deu pau!!!');
+    //         console.log(error);
+    //     });
+    //     cco1++;
+    // };
     adicionaDinos();
     div.style.visibility = "visible";
-    document.querySelector('#form_visible').reset();
+    // document.querySelector('#form_visible').reset();
     event.preventDefault();
 }
 

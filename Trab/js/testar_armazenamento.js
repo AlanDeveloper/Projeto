@@ -24,14 +24,13 @@ function loadAudio() {
     Persistencia.onValue('/audio', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             let path = childSnapshot.val().path;
-            console.log('so far so good...');
             Armazenamento.download(path, function (data) {
                 audios.push(new Audio(URL.createObjectURL(data)));
                 console.log('Arquivo de audio baixado...');
             });
         });
     });
-}
+};
 
 loadAudio();
 
