@@ -1,5 +1,17 @@
-let d, cont = 0, cont1 = 0, n = 0,ref = firebase.database().ref('/');
-let quest = [], q12 = [], alt1 = [], alt11 = [], alt2 = [], alt22 = [], alt3 = [], alt33 = [], resp = [], resp1 = [];
+let d, cont = 0,
+    cont1 = 0,
+    n = 0,
+    ref = firebase.database().ref('/');
+let quest = [],
+    q12 = [],
+    alt1 = [],
+    alt11 = [],
+    alt2 = [],
+    alt22 = [],
+    alt3 = [],
+    alt33 = [],
+    resp = [],
+    resp1 = [];
 let q = 1;
 let rad = [];
 let random = [];
@@ -10,12 +22,13 @@ let inp2 = document.querySelector('#resposta_1-1');
 let inp3 = document.querySelector('#resposta_1-2');
 let inp4 = document.querySelector('#resposta_1-3');
 let divPer = document.querySelector('.perguntas');
-let btn  = document.querySelector('#cl');
+let btn = document.querySelector('#cl');
 let divPro = document.querySelector('.progress-bar');
 divPro.style.width = "0%";
 
 ref.on('value', function (dados) {
     d = Object.keys(dados.val());
+    console.log('so far so good');
     ref = firebase.database().ref('/' + window.localStorage.getItem('page'));
     ref.on("child_added", function (e) {
         quest[cont] = e.val().questao;
@@ -24,6 +37,7 @@ ref.on('value', function (dados) {
         alt3[cont] = e.val().alt3;
         resp[cont] = e.val().resposta;
         cont++;
+        console.log(e);
     });
     if (quest.length === 10) {
         p.innerText = quest[n];
@@ -45,7 +59,10 @@ ref.on('value', function (dados) {
     };
 });
 
-let cc = 0, cc1 = 0, ru = [], cc2 = 0;
+let cc = 0,
+    cc1 = 0,
+    ru = [],
+    cc2 = 0;
 
 btn.addEventListener('click', function (e) {
     while (cc <= 3) {
@@ -95,7 +112,7 @@ function randOrd() {
     return rad;
 }
 
-function Correction () {
+function Correction() {
     divPer.innerHTML = '';
     divPer.setAttribute('class', 'end');
     let d = document.createElement('h2');

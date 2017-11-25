@@ -1,34 +1,39 @@
-const ul = document.querySelector('#ul');
-const li = document.querySelector('.item')
-let a = document.createElement('a');
-ref = firebase.database().ref('/');
-let d, cont = 0, path = [],path1 = [], p1 = 0, audios= [];
-ref.on('value', function (dados) {
-    d = Object.keys(dados.val());
-    while (cont < d.length) {
-        if  (d[cont] != 'audio') {
-            a.href  = "quiz.html";
-            a.setAttribute('id', 'item');
-            a.innerText = d[cont];
-            let i = d[cont];
-            a.addEventListener('click', function () {
-                window.localStorage.setItem('page', i);
-            });
-            li.appendChild(a);
-            ul.appendChild(li);
-            a = document.createElement('a');
-        } else {
-            ref = firebase.database().ref('/' + d[cont]);
-            ref.on("child_added", function (e) {
-                path[p1] = e.val().path;
-                p1++;
-            });
-            path1 = path;
+function loadQuizes () {
+    let quizes = [];
+    const ul = document.querySelector('#ul');
+    const li = document.querySelector('.item')
+    let a = document.createElement('a');
+    ref = firebase.database().ref('/');
+    let d, cont = 0, path = [], path1 = [], p1 = 0, audios = [];
+    ref.on('value', function (dados) {
+        d = Object.keys(dados.val());
+        while (cont < d.length) {
+            if (d[cont] != 'audio') {
+                a.href = "quiz.html";
+                a.setAttribute('id', 'item');
+                a.innerText = d[cont];
+                let i = d[cont];
+                a.addEventListener('click', function () {
+                    window.localStorage.setItem('page', i);
+                });
+                li.appendChild(a);
+                ul.appendChild(li);
+                quizes.push(a);
+                a = document.createElement('a');
+            } else {
+                ref = firebase.database().ref('/' + d[cont]);
+                ref.on("child_added", function (e) {
+                    path[p1] = e.val().path;
+                    p1++;
+                });
+                path1 = path;
+            }
+            cont++;
         }
-        cont++;
-    }
-    // load();
-});
+        sayOptions(quizes);
+        // load();
+    });
+}
 
 // function load() {
 //     Persistencia.onValue('/audio', function (snapshot) {
